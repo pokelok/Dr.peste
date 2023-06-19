@@ -2250,7 +2250,7 @@ end)
     
     
 
-Main:Toggle("AutoFarm Level",_G.AutoFarm,function(value)
+Main:Toggle(" Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
         _G.Seet = value
         _G.M = value
@@ -2268,12 +2268,14 @@ Main:Toggle("AutoFarm Level",_G.AutoFarm,function(value)
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         CheckQuest()
-                        repeat wait() TP1(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
-                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-                            wait(0.1)
+
+                        repeat wait() topos(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
+                       if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
+                            wait(1.2)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
                             wait(0.5)
-                        end
+                       end
+
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                         CheckQuest()
                         if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
